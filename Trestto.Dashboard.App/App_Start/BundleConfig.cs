@@ -32,6 +32,7 @@ namespace Trestto.Dashboard.App
                       "~/dashboard/home/home.controller.js",
                                         "~/dashboard/home/rootCtrl.js"
            ));
+
             
             bundles.Add(new ScriptBundle("~/bundles/vendor").Include(
                  "~/Scripts/Angular/angular.min.js",
@@ -41,11 +42,15 @@ namespace Trestto.Dashboard.App
                  "~/Scripts/Angular/calendar.js",
                  "~/Scripts/Angular/loading-bar.js", 
                  "~/Scripts/Angular/slider.js",
+                 "~/Scripts/Angular/Chart.min.js",
+                 "~/Scripts/Angular/easypieChart.js",
+                 "~/Scripts/Angular/angular-chart.js",
                  "~/Scripts/Angular/angular-notify.js"));
-
+           
             bundles.Add(new StyleBundle("~/Content/css").Include(
                      "~/Content/ui-bootstrap-csp.css",
                       "~/Content/bootstrap.css",
+                      "~/Content/angular-chart.css",
                       "~/Content/app.css"));
         }
     }

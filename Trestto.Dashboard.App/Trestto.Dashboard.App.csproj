@@ -221,6 +221,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\angular-chart.css" />
     <Content Include="Content\app.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -242,6 +243,9 @@
     <Content Include="Scripts\Angular\angular-perfect-scrollbar.js" />
     <Content Include="Scripts\Angular\angular.min.js" />
     <Content Include="Scripts\Angular\calendar.js" />
+    <Content Include="Scripts\Angular\Chart.min.js" />
+    <Content Include="Scripts\Angular\easypieChart.js" />
+    <Content Include="Scripts\Angular\gulpfile.js" />
     <Content Include="Scripts\Angular\loading-bar.js" />
     <Content Include="Scripts\Angular\morris.min.js" />
     <Content Include="Scripts\Angular\ngRoute.js" />

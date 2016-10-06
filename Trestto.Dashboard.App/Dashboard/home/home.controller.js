@@ -197,7 +197,7 @@
 
         setInterval(function () {
             $scope.Dashboard();
-        }, 10000);
+        }, 5000);
 
     }
 })(angular.module('TRESTTO'));
