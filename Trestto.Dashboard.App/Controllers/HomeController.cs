@@ -13,20 +13,6 @@ namespace Trestto.Dashboard.App.Controllers
             return View();
         }
 
-        [HttpGet]
-        public List<string> blablas()
-        {
-            List<string> lsta = new List<string>();
-
-            lsta.Add("www");
-            lsta.Add("ww32w");
-            lsta.Add("www2");
-            lsta.Add("www1");
-            lsta.Add("wwwas");
-            lsta.Add("sdasdsad");
-            return lsta;
-        }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

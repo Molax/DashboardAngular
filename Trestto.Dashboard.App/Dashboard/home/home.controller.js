@@ -1,22 +1,23 @@
 ﻿/// <reference path="home.controller.js" />
 (function (app) {
-	app.controller('homeCtrl', homeCtrl);
+    app.controller('homeCtrl', homeCtrl);
 
-	homeCtrl.$inject = ["$scope", "$location", "apiService"];
+    homeCtrl.$inject = ["$scope", "$location", "apiService"];
 
-	function homeCtrl($scope, $location, apiService) {
-		console.log('foifoifofof');
+    function homeCtrl($scope, $location, apiService) {
 
-		function blablasSucess(res) {
-			alert(res.data);
-		}
+        function successAtualizaPainelHoraHora(res) {
 
-		function error(res) {
+            console.log(res.data);
 
-		}
+        }
 
-		apiService.get("home/blablas", null, blablasSucess, error);
-         
-		$scope.FODASEE = 'IFUDEI';
-	}
+        function errorAtualizaPainelHoraHora(res) {
+
+        }
+
+        apiService.get("Dash/AtualizaPainelHoraHora", null, successAtualizaPainelHoraHora, errorAtualizaPainelHoraHora);
+
+        $scope.FODASEE = 'IFUDEI';
+    }
 })(angular.module('TRESTTO'));
