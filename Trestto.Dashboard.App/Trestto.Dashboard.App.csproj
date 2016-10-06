@@ -221,9 +221,11 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\app.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\loading-bar.css" />
+    <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="Dashboard\app.js" />
     <Content Include="Dashboard\home\home.html" />
     <Content Include="Dashboard\home\rootCtrl.js" />

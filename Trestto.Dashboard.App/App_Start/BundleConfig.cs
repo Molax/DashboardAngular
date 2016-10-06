@@ -44,10 +44,9 @@ namespace Trestto.Dashboard.App
                  "~/Scripts/Angular/angular-notify.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                     
+                     "~/Content/ui-bootstrap-csp.css",
                       "~/Content/bootstrap.css",
-
-                      "~/Content/site.css"));
+                      "~/Content/app.css"));
         }
     }
 }

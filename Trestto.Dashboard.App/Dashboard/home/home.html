@@ -1,3 +1,50 @@
-﻿<div>
- <h1>{{teste}}</h1>
+﻿<div class="col-lg-12 ng-scope">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Mailing</h2>
+        </header>
+        <div class="content-body padding-bottom-0">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <table st-table="rowCollectionBasic" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Mailing Recebido</th>
+                                <th>Mailing Importado</th>
+                                <th>Mailing Trabalhado</th>
+                                <th>Spins</th>
+                                <th>CPC</th>
+                                <th>Atendidas</th>
+                                <th>Promessa</th>
+                                <th>Alega Pagamento</th>
+                                <th>% CPC</th>
+                                <th>% Promessa</th>
+                                <th>% Alega Pagamento</th>
+                                <th>% Localização</th>
+                                <th>% Mailing Trabalhado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- ngRepeat: row in rowCollectionBasic -->
+                            <tr ng-repeat="row in AtualizaControleMailing" st-select-row="row" class="ng-scope ng-isolate-scope">
+                                <td class="ng-binding">{{row.MailingRecebido}}</td>
+                                <td class="ng-binding">{{row.MailingImportado}}</td>
+                                <td class="ng-binding">{{row.MailingTrabalhado}}</td>
+                                <td class="ng-binding">{{row.Spins}}</td>
+                                <td class="ng-binding">{{row.Atendidas}}</td>
+                                <td class="ng-binding">{{row.CPC}}</td>
+                                <td class="ng-binding">{{row.Promessa}}</td>
+                                <td class="ng-binding">{{row.AlegaPagamento}}</td>
+                                <td class="ng-binding">{{row.CPCPercent}}%</td>
+                                <td class="ng-binding">{{row.PromessaPercent}}%</td>
+                                <td class="ng-binding">{{row.AlegaPagamentoPercent}}%</td>
+                                <td class="ng-binding">{{row.LocalizacaoPercent}}%</td>
+                                <td class="ng-binding">{{row.MailingTrabalhadoPercent}}%</td>
+                            </tr><!-- end ngRepeat: row in rowCollectionBasic -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
