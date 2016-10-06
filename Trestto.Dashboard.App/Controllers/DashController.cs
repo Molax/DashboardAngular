@@ -83,7 +83,7 @@ namespace Trestto.Dashboard.App.Controllers
             {
                 Dados.Add(new Objetos.AtualizaPainelHoraHoraTotal
                 {
-                    Total = Convert.ToInt32(item["Total"])
+                    Total = item["Total"].ToString()
                 });
             }
 
@@ -166,7 +166,7 @@ namespace Trestto.Dashboard.App.Controllers
             {
                 Dados.Add(new Objetos.AtualizaPainelHoraHoraTotal
                 {
-                    Total = Convert.ToInt32(item["Total"])
+                    Total = item["Total"].ToString()
                 });
             }
 
