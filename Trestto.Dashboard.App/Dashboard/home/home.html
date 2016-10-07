@@ -3,6 +3,7 @@
         <header class="panel_header">
             <h2 class="title pull-left">Mailing</h2>
         </header>
+        <!--<h1 ng-style="{color: corDefinida <= '30' ? 'red' : (corDefinida > 30 && corDefinida < 60) ? 'blue' : 'yellow'}">kaksaksak</h1>-->
         <div class="content-body padding-bottom-0">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -58,64 +59,19 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 wid-project-report">
                     <div class="row">
-                        <div class="col-lg-4 col-xs-12 col-sm-12 col-md-6">
-                            <div ui-jq="easyPieChart" ui-options="{
-                      easing: 'easeOutBounce',
-                      barColor: '#673AB7',
-                      trackColor: '#f5f5f5',
-                      scaleColor: '#eaeaea',
-                      lineCap: 'square',
-                      lineWidth: 5,
-                      size: 120,
-                      animate: 1000,
-                      percent: 66
-                    }" class="easyPieChart" style="width: 120px; height: 120px; line-height: 120px;">
-                                <div>
-                                    <span class="text-primary percent">66%</span>
-                                </div>
-                                <canvas width="120" height="120"></canvas>
-                            </div>
-                            <h4 class="text-center margin-top-10 margin-bottom-10">Task Completed</h4>
+                        <div class="col-lg-4 col-xs-12 col-sm-12 col-md-4">
+                            <div id="container-rpm" style="width: 300px; height: 200px; float: left"></div>
+
+                           </div>
+                        <div class="col-lg-4 col-xs-12 col-sm-12 col-md-4">
+                            <div id="container-rpm" style="width: 300px; height: 200px; float: left"></div>
+
                         </div>
-                        <div class="col-lg-4 col-xs-12 col-sm-12 col-md-6">
-                            <div ui-jq="easyPieChart" ui-options="{
-                      easing: 'easeOutBounce',
-                      barColor: '#FF6E40',
-                      trackColor: '#f5f5f5',
-                      scaleColor: '#eaeaea',
-                      lineCap: 'square',
-                      lineWidth: 5,
-                      size: 120,
-                      animate: 1000,
-                      percent: 45
-                    }" class="easyPieChart" style="width: 120px; height: 120px; line-height: 120px;">
-                                <div>
-                                    <span class="text-accent percent">45%</span>
-                                </div>
-                                <canvas width="120" height="120"></canvas>
-                            </div>
-                            <h4 class="text-center margin-top-10 margin-bottom-10">Resources Used</h4>
+                        <div class="col-lg-4 col-xs-12 col-sm-12 col-md-4">
+                            <div id="container-rpm" style="width: 300px; height: 200px; float: left"></div>
+
                         </div>
-                        <div class="col-lg-4 col-xs-12 col-sm-12 col-md-6">
-                            <div ui-jq="easyPieChart" ui-options="{
-                      easing: 'easeOutBounce',
-                      barColor: '#FF6E40',
-                      trackColor: '#f5f5f5',
-                      scaleColor: '#eaeaea',
-                      lineCap: 'square',
-                      lineWidth: 5,
-                      size: 120,
-                      animate: 1000,
-                      percent: 45
-                    }" class="easyPieChart" style="width: 120px; height: 120px; line-height: 120px;">
-                                <div>
-                                    <span class="text-accent percent">45%</span>
-                                </div>
-                                <canvas width="120" height="120"></canvas>
-                            </div>
-                            <h4 class="text-center margin-top-10 margin-bottom-10">Resources Used</h4>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

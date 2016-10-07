@@ -238,14 +238,25 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\Angular\angular-canvas-gauge.js" />
     <Content Include="Scripts\Angular\angular-chart.js" />
     <Content Include="Scripts\Angular\angular-notify.js" />
     <Content Include="Scripts\Angular\angular-perfect-scrollbar.js" />
+    <Content Include="Scripts\Angular\angular.easypiechart.min.js" />
     <Content Include="Scripts\Angular\angular.min.js" />
     <Content Include="Scripts\Angular\calendar.js" />
     <Content Include="Scripts\Angular\Chart.min.js" />
+    <Content Include="Scripts\Angular\chartjs.js" />
+    <Content Include="Scripts\Angular\dash.js" />
     <Content Include="Scripts\Angular\easypieChart.js" />
+    <Content Include="Scripts\Angular\exporting.js" />
+    <Content Include="Scripts\Angular\gauge.js" />
     <Content Include="Scripts\Angular\gulpfile.js" />
+    <Content Include="Scripts\Angular\hichchartmore.js" />
+    <Content Include="Scripts\Angular\highchart.js" />
+    <Content Include="Scripts\Angular\izipie.js" />
+    <Content Include="Scripts\Angular\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\Angular\jquery.easypiechart.fill.js" />
     <Content Include="Scripts\Angular\loading-bar.js" />
     <Content Include="Scripts\Angular\morris.min.js" />
     <Content Include="Scripts\Angular\ngRoute.js" />
@@ -317,7 +328,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\mult-e\Desktop\Trestto.Dashboard\Objetos\Objetos.csproj">
+    <ProjectReference Include="..\Objetos\Objetos.csproj">
       <Project>{701ca370-012e-4317-9d2c-9b732e69fe49}</Project>
       <Name>Objetos</Name>
     </ProjectReference>

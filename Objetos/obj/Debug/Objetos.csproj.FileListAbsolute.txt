@@ -1,0 +1,8 @@
+C:\Users\mult-e\Desktop\Trestto.Dashboard\Objetos\bin\Debug\Objetos.dll
+C:\Users\mult-e\Desktop\Trestto.Dashboard\Objetos\bin\Debug\Objetos.pdb
+C:\Users\mult-e\Desktop\Trestto.Dashboard\Objetos\obj\Debug\Objetos.dll
+C:\Users\mult-e\Desktop\Trestto.Dashboard\Objetos\obj\Debug\Objetos.pdb
+C:\Gitlab\DashboardAngular\Objetos\bin\Debug\Objetos.dll
+C:\Gitlab\DashboardAngular\Objetos\bin\Debug\Objetos.pdb
+C:\Gitlab\DashboardAngular\Objetos\obj\Debug\Objetos.dll
+C:\Gitlab\DashboardAngular\Objetos\obj\Debug\Objetos.pdb

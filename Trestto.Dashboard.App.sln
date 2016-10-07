@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trestto.Dashboard.App", "Trestto.Dashboard.App\Trestto.Dashboard.App.csproj", "{8E287C72-2C2A-40E1-B3FE-5067D1BA6F69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Objetos", "C:\Users\mult-e\Desktop\Trestto.Dashboard\Objetos\Objetos.csproj", "{701CA370-012E-4317-9D2C-9B732E69FE49}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Objetos", "Objetos\Objetos.csproj", "{701CA370-012E-4317-9D2C-9B732E69FE49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
