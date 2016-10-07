@@ -12,6 +12,10 @@ namespace Trestto.Dashboard.App.Controllers
         [HttpGet]
         public JsonResult AtualizaPainelHoraHora()
         {
+            List<Objetos.AtualizaPainelHoraHoraTotal> total = new List<Objetos.AtualizaPainelHoraHoraTotal>();
+
+            total = AtualizaPainelHoraHoraTotal();
+
             List<Objetos.AtualizaPainelHoraHora> Dados = new List<Objetos.AtualizaPainelHoraHora>();
 
 
@@ -28,27 +32,29 @@ namespace Trestto.Dashboard.App.Controllers
             DataTable dt = new DataTable();
             dt.Load(dr);
 
+            int i = 0;
             foreach (DataRow item in dt.Rows)
             {
                 Dados.Add(new Objetos.AtualizaPainelHoraHora
                 {
                     Status = item["Status"].ToString(),
-                    status8 = item["8"].ToString(),
-                    status9 = item["9"].ToString(),
-                    status10 = item["10"].ToString(),
-                    status11 = item["11"].ToString(),
-                    status12 = item["12"].ToString(),
-                    status13 = item["13"].ToString(),
-                    status14 = item["14"].ToString(),
-                    status15 = item["15"].ToString(),
-                    status16 = item["16"].ToString(),
-                    status17 = item["17"].ToString(),
-                    status18 = item["18"].ToString(),
-                    status19 = item["19"].ToString(),
-                    status20 = item["20"].ToString(),
-                    status21 = item["21"].ToString(),
-
+                    status9 = Convert.ToInt32(item["9"]),
+                    status8 = Convert.ToInt32(item["8"]),
+                    status10 = Convert.ToInt32(item["10"] ),
+                    status11 = Convert.ToInt32(item["11"] ),
+                    status12 = Convert.ToInt32(item["12"] ),
+                    status13 = Convert.ToInt32(item["13"] ),
+                    status14 = Convert.ToInt32(item["14"] ),
+                    status15 = Convert.ToInt32(item["15"] ),
+                    status16 = Convert.ToInt32(item["16"] ),
+                    status17 = Convert.ToInt32(item["17"] ),
+                    status18 = Convert.ToInt32(item["18"] ),
+                    status19 = Convert.ToInt32(item["19"] ),
+                    status20 = Convert.ToInt32(item["20"] ),
+                    status21 = Convert.ToInt32(item["21"] ),
+                    Total = total[i].Total
                 });
+                i++;
             }
 
             sqlConnection1.Close();
@@ -58,7 +64,7 @@ namespace Trestto.Dashboard.App.Controllers
         }
 
         [HttpGet]
-        public JsonResult AtualizaPainelHoraHoraTotal()
+        public List<Objetos.AtualizaPainelHoraHoraTotal> AtualizaPainelHoraHoraTotal()
         {
             List<Objetos.AtualizaPainelHoraHoraTotal> Dados = new List<Objetos.AtualizaPainelHoraHoraTotal>();
 
@@ -89,7 +95,7 @@ namespace Trestto.Dashboard.App.Controllers
 
             sqlConnection1.Close();
 
-            return Json(Dados, JsonRequestBehavior.AllowGet);
+            return Dados;
 
 
 
@@ -98,6 +104,9 @@ namespace Trestto.Dashboard.App.Controllers
         [HttpGet]
         public JsonResult AtualizaPainelHoraHoraPercentual()
         {
+            List<Objetos.AtualizaPainelHoraHoraTotal> total = new List<Objetos.AtualizaPainelHoraHoraTotal>();
+
+            total = AtualizaPainelHoraHoraPercentualTotal();
 
             List<Objetos.AtualizaPainelHoraHora> Dados = new List<Objetos.AtualizaPainelHoraHora>();
 
@@ -113,28 +122,30 @@ namespace Trestto.Dashboard.App.Controllers
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Load(dr);
-
+            int i = 0;
             foreach (DataRow item in dt.Rows)
             {
                 Dados.Add(new Objetos.AtualizaPainelHoraHora
                 {
                     Status = item["Status"].ToString(),
-                    status8 = item["8"].ToString(),
-                    status9 = item["9"].ToString(),
-                    status10 = item["10"].ToString(),
-                    status11 = item["11"].ToString(),
-                    status12 = item["12"].ToString(),
-                    status13 = item["13"].ToString(),
-                    status14 = item["14"].ToString(),
-                    status15 = item["15"].ToString(),
-                    status16 = item["16"].ToString(),
-                    status17 = item["17"].ToString(),
-                    status18 = item["18"].ToString(),
-                    status19 = item["19"].ToString(),
-                    status20 = item["20"].ToString(),
-                    status21 = item["21"].ToString(),
+                    status8 = Convert.ToDouble(item["8"]),
+                    status9 = Convert.ToDouble(item["9"]),
+                    status10 =Convert.ToDouble( item["10"]),
+                    status11 =Convert.ToDouble( item["11"]),
+                    status12 =Convert.ToDouble( item["12"]),
+                    status13 =Convert.ToDouble( item["13"]),
+                    status14 =Convert.ToDouble( item["14"]),
+                    status15 =Convert.ToDouble( item["15"]),
+                    status16 =Convert.ToDouble( item["16"]),
+                    status17 =Convert.ToDouble( item["17"]),
+                    status18 =Convert.ToDouble( item["18"]),
+                    status19 =Convert.ToDouble( item["19"]),
+                    status20 =Convert.ToDouble( item["20"]),
+                    status21 =Convert.ToDouble( item["21"]),
+                    Total = total[i].Total
 
                 });
+                i++;
             }
 
 
@@ -145,7 +156,7 @@ namespace Trestto.Dashboard.App.Controllers
         }
 
         [HttpGet]
-        public JsonResult AtualizaPainelHoraHoraPercentualTotal()
+        public List<Objetos.AtualizaPainelHoraHoraTotal> AtualizaPainelHoraHoraPercentualTotal()
         {
             List<Objetos.AtualizaPainelHoraHoraTotal> Dados = new List<Objetos.AtualizaPainelHoraHoraTotal>();
 
@@ -173,7 +184,7 @@ namespace Trestto.Dashboard.App.Controllers
 
             sqlConnection1.Close();
 
-            return Json(Dados, JsonRequestBehavior.AllowGet);
+            return Dados;
         }
 
         [HttpGet]
@@ -232,7 +243,7 @@ namespace Trestto.Dashboard.App.Controllers
                 Dados.Add(new Objetos.AtualizaGraficoTelefonia
                 {
                     Dado = item["Dado"].ToString(),
-                    Valor = item["Valor"].ToString()
+                    Valor = Convert.ToDouble(item["Valor"])
                 });
             }
 
@@ -308,10 +319,10 @@ namespace Trestto.Dashboard.App.Controllers
                 Dados.Add(new Objetos.AtualizaMonitoramentoCanais
                 {
                     AgentesOcupados = item["AgentesOcupados"].ToString(),
-                    AgentesOcupadosPercentual = item["AgentesOcupadosPercentual"].ToString(),
+                    AgentesOcupadosPercentual = Convert.ToDouble(item["AgentesOcupadosPercentual"]),
                     AgentesTotal = item["AgentesTotal"].ToString(),
                     CanaisOcupados = item["CanaisOcupados"].ToString(),
-                    CanaisOcupadosPercentual = item["CanaisOcupadosPercentual"].ToString(),
+                    CanaisOcupadosPercentual = Convert.ToDouble(item["CanaisOcupadosPercentual"]),
                     CanaisTotal = item["CanaisTotal"].ToString()
                 });
             }
@@ -360,7 +371,7 @@ namespace Trestto.Dashboard.App.Controllers
         public JsonResult AtualizaVelocimetros()
 
         {
-            List<Objetos.AtualizaGraficoTelefonia> Dados = new List<Objetos.AtualizaGraficoTelefonia>();
+            List<Objetos.AtualizaVelocimentros> Dados = new List<Objetos.AtualizaVelocimentros>();
             DataTable dt = new DataTable();
 
             SqlConnection sqlConnection1 = new SqlConnection(ConfigurationManager.ConnectionStrings["DASHBOARD"].ConnectionString);
@@ -379,7 +390,7 @@ namespace Trestto.Dashboard.App.Controllers
 
             foreach (DataRow item in dt.Rows)
             {
-                Dados.Add(new Objetos.AtualizaGraficoTelefonia
+                Dados.Add(new Objetos.AtualizaVelocimentros
                 {
                     Dado = item["Dado"].ToString(),
                     Valor = item["Valor"].ToString()

@@ -47,26 +47,16 @@
             }
 
 
-            //AtualizaPainelHoraHoraTotal
-            apiService.get("Dash/AtualizaPainelHoraHoraTotal", null, successAtualizaPainelHoraHoraAtualizaPainelHoraHoraTotal, errorAtualizaPainelHoraHoraTotal);
 
-            function successAtualizaPainelHoraHoraAtualizaPainelHoraHoraTotal(res) {
-
-                $scope.AtualizaPainelHoraHoraTotal = res.data;
-                console.log(res.data)
-            }
-
-            function errorAtualizaPainelHoraHoraTotal(res) {
-
-            }
 
 
             //AtualizaPainelHoraHoraPercentual
             apiService.get("Dash/AtualizaPainelHoraHoraPercentual", null, successAtualizaPainelHoraHoraPercentual, errorAtualizaPainelHoraHoraPercentual);
 
             function successAtualizaPainelHoraHoraPercentual(res) {
-
+                
                 $scope.AtualizaPainelHoraHoraPercentual = res.data;
+
                 console.log(res.data)
             }
 
@@ -74,19 +64,6 @@
 
             }
 
-
-            //AtualizaPainelHoraHoraPercentualTotal
-            apiService.get("Dash/AtualizaPainelHoraHoraPercentualTotal", null, successAtualizaPainelHoraHoraPercentualTotal, errorAtualizaPainelHoraHoraPercentualTotal);
-
-            function successAtualizaPainelHoraHoraPercentualTotal(res) {
-
-                $scope.AtualizaPainelHoraHoraPercentualTotal = res.data;
-                console.log(res.data)
-            }
-
-            function errorAtualizaPainelHoraHoraPercentualTotal(res) {
-
-            }
 
 
             //AtualizaPainelTelefonia
@@ -108,9 +85,15 @@
             apiService.get("Dash/AtualizaGraficoTelefonia", null, successAtualizaGraficoTelefonia, errorAtualizaGraficoTelefonia);
 
             function successAtualizaGraficoTelefonia(res) {
-
+                
                 $scope.AtualizaGraficoTelefonia = res.data;
-                console.log(res.data)
+                
+                $scope.AtualizaGraficoTelefonia[0].Valor = $scope.AtualizaGraficoTelefonia[0].Valor.toFixed(2);
+                $scope.AtualizaGraficoTelefonia[1].Valor = $scope.AtualizaGraficoTelefonia[1].Valor.toFixed(2);
+                $scope.AtualizaGraficoTelefonia[2].Valor = $scope.AtualizaGraficoTelefonia[2].Valor.toFixed(2);
+                $scope.AtualizaGraficoTelefonia[3].Valor = $scope.AtualizaGraficoTelefonia[3].Valor.toFixed(2);
+                $scope.AtualizaGraficoTelefonia[4].Valor = $scope.AtualizaGraficoTelefonia[4].Valor.toFixed(2);
+                $scope.AtualizaGraficoTelefonia[5].Valor = $scope.AtualizaGraficoTelefonia[5].Valor.toFixed(2);
             }
 
             function errorAtualizaGraficoTelefonia(res) {
@@ -122,7 +105,7 @@
             apiService.get("Dash/AtualizaProdutividadeAgentes", null, succesAtualizaProdutividadeAgentes, errorAtualizaProdutividadeAgentes);
 
             function succesAtualizaProdutividadeAgentes(res) {
-
+                
                 $scope.AtualizaProdutividadeAgentes = res.data;
                 console.log(res.data)
             }
@@ -132,13 +115,15 @@
             }
 
 
+
+
+
             //AtualizaMonitoramentoCanais
             apiService.get("Dash/AtualizaMonitoramentoCanais", null, succesAtualizaMonitoramentoCanais, erroAtualizaMonitoramentoCanais);
 
             function succesAtualizaMonitoramentoCanais(res) {
 
                 $scope.AtualizaMonitoramentoCanais = res.data;
-                console.log(res.data)
             }
 
             function erroAtualizaMonitoramentoCanais(res) {
@@ -163,6 +148,9 @@
             }
 
 
+
+
+
             //AtualizaControleMailingGrafico
             apiService.get("Dash/AtualizaControleMailingGrafico", null, succesAtualizaControleMailingGrafico, errorAtualizaControleMailingGrafico);
 
@@ -183,7 +171,9 @@
             function succesAtualizaConversaoCPC(res) {
 
                 $scope.AtualizaConversaoCPC = res.data;
-                console.log(res.data)
+                console.log($scope.AtualizaConversaoCPC[0])
+
+
             }
 
             function errorAtualizaConversaoCPC(res) {
@@ -202,87 +192,353 @@
 
             $scope.AtualizaVelocimetros = res.data;
 
+            var x = parseFloat(res.data[0].Valor);
 
-            var gaugeOptions = {
+            $('#container').highcharts({
 
                 chart: {
-                    type: 'solidgauge'
+                    type: 'gauge',
+                    plotBackgroundColor: null,
+                    plotBackgroundImage: null,
+                    plotBorderWidth: 0,
+                    plotShadow: false
                 },
 
-                title: null,
+                title: {
+                    text: res.data[0].Dado
+                },
 
                 pane: {
-                    center: ['50%', '85%'],
-                    size: '140%',
-                    startAngle: -90,
-                    endAngle: 90,
-                    background: {
-                        backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
-                        innerRadius: '60%',
-                        outerRadius: '100%',
-                        shape: 'arc'
-                    }
-                },
-
-                tooltip: {
-                    enabled: false
+                    startAngle: -150,
+                    endAngle: 150,
+                    background: [{
+                        backgroundColor: {
+                            linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                            stops: [
+                                [0, '#FFF'],
+                                [1, '#333']
+                            ]
+                        },
+                        borderWidth: 0,
+                        outerRadius: '109%'
+                    }, {
+                        backgroundColor: {
+                            linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                            stops: [
+                                [0, '#333'],
+                                [1, '#FFF']
+                            ]
+                        },
+                        borderWidth: 1,
+                        outerRadius: '107%'
+                    }, {
+                        // default background
+                    }, {
+                        backgroundColor: '#DDD',
+                        borderWidth: 0,
+                        outerRadius: '105%',
+                        innerRadius: '103%'
+                    }]
                 },
 
                 // the value axis
                 yAxis: {
-                    stops: [
-                        [0.1, '#55BF3B'], // green
-                        [0.5, '#DDDF0D'], // yellow
-                        [0.9, '#DF5353'] // red
-                    ],
-                    lineWidth: 0,
-                    minorTickInterval: null,
-                    tickAmount: 2,
-                    title: {
-                        y: -70
-                    },
-                    labels: {
-                        y: 16
-                    }
-                },
-
-                plotOptions: {
-                    solidgauge: {
-                        dataLabels: {
-                            y: 5,
-                            borderWidth: 0,
-                            useHTML: true
-                        }
-                    }
-                }
-            };
-            debugger;
-            var x = parseInt(res.data[0].Valor);
-
-            $('#container-rpm').highcharts(Highcharts.merge(gaugeOptions, {
-                yAxis: {
                     min: 0,
                     max: 100,
+
+                    minorTickInterval: 'auto',
+                    minorTickWidth: 1,
+                    minorTickLength: 10,
+                    minorTickPosition: 'inside',
+                    minorTickColor: '#666',
+
+                    tickPixelInterval: 30,
+                    tickWidth: 2,
+                    tickPosition: 'inside',
+                    tickLength: 10,
+                    tickColor: '#666',
+                    labels: {
+                        step: 2,
+                        rotation: 'auto'
+                    },
                     title: {
-                        text: res.data[0].Dado
-                    }
+                        text: '%'
+                    },
+                    plotBands: [{
+                        from: 0,
+                        to: 20,
+                        color: '#55BF3B' // green
+                    }, {
+                        from: 20,
+                        to: 60,
+                        color: '#DDDF0D' // yellow
+                    }, {
+                        from: 60,
+                        to: 100,
+                        color: '#DF5353' // red
+                    }]
                 },
 
                 series: [{
-                    name: 'RPM',
-                    data: x,
-                    dataLabels: {
-                        format: '<div style="text-align:center"><span style="font-size:25px;color:' +
-                            ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y:.1f}</span><br/>' +
-                               '<span style="font-size:12px;color:silver">Porcentagem</span></div>'
-                    },
+                    name: 'Porcentagem',
+                    data: [x],
                     tooltip: {
-                        valueSuffix: ' revolutions/min'
+                        valueSuffix: ' %'
                     }
                 }]
 
-            }));
+            },
+        // Add some life
+        function (chart) {
+            if (!chart.renderer.forExport) {
+                setInterval(function () {
+                    apiService.get("Dash/AtualizaVelocimetros", null, suc, er);
+                    function suc(data) {
+                        var point = chart.series[0].points[0],
+                        newVal,
+                        inc = parseFloat(data.data[0].Valor);
 
+                        newVal = parseFloat(data.data[0].Valor);
+                        point.update(newVal);
+                    }
+                    function er(data) {
+                    }
+
+
+                }, 4000);
+            }
+        });
+            var y = parseFloat(res.data[1].Valor);
+            $('#container2').highcharts({
+
+                chart: {
+                    type: 'gauge',
+                    plotBackgroundColor: null,
+                    plotBackgroundImage: null,
+                    plotBorderWidth: 0,
+                    plotShadow: false
+                },
+
+                title: {
+                    text: res.data[1].Dado
+                },
+
+                pane: {
+                    startAngle: -150,
+                    endAngle: 150,
+                    background: [{
+                        backgroundColor: {
+                            linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                            stops: [
+                                [0, '#FFF'],
+                                [1, '#333']
+                            ]
+                        },
+                        borderWidth: 0,
+                        outerRadius: '109%'
+                    }, {
+                        backgroundColor: {
+                            linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                            stops: [
+                                [0, '#333'],
+                                [1, '#FFF']
+                            ]
+                        },
+                        borderWidth: 1,
+                        outerRadius: '107%'
+                    }, {
+                        // default background
+                    }, {
+                        backgroundColor: '#DDD',
+                        borderWidth: 0,
+                        outerRadius: '105%',
+                        innerRadius: '103%'
+                    }]
+                },
+
+                // the value axis
+                yAxis: {
+                    min: 0,
+                    max: 100,
+
+                    minorTickInterval: 'auto',
+                    minorTickWidth: 1,
+                    minorTickLength: 10,
+                    minorTickPosition: 'inside',
+                    minorTickColor: '#666',
+
+                    tickPixelInterval: 30,
+                    tickWidth: 2,
+                    tickPosition: 'inside',
+                    tickLength: 10,
+                    tickColor: '#666',
+                    labels: {
+                        step: 2,
+                        rotation: 'auto'
+                    },
+                    title: {
+                        text: '%'
+                    },
+                    plotBands: [{
+                        from: 0,
+                        to: 20,
+                        color: '#55BF3B' // green
+                    }, {
+                        from: 20,
+                        to: 60,
+                        color: '#DDDF0D' // yellow
+                    }, {
+                        from: 60,
+                        to: 100,
+                        color: '#DF5353' // red
+                    }]
+                },
+
+                series: [{
+                    name: 'Porcentagem',
+                    data: [y],
+                    tooltip: {
+                        valueSuffix: ' %'
+                    }
+                }]
+
+            },
+        // Add some life
+        function (chart) {
+            if (!chart.renderer.forExport) {
+                setInterval(function () {
+                    apiService.get("Dash/AtualizaVelocimetros", null, suc, er);
+                    function suc(data) {
+                        var point = chart.series[0].points[0],
+                        newVal,
+                        inc = parseFloat(data.data[1].Valor);
+
+                        newVal = parseFloat(data.data[1].Valor);
+                        point.update(newVal);
+                    }
+                    function er(data) {
+                    }
+
+
+                }, 4000);
+            }
+        });
+
+            var z = parseFloat(res.data[2].Valor);
+            $('#container3').highcharts({
+
+                chart: {
+                    type: 'gauge',
+                    plotBackgroundColor: null,
+                    plotBackgroundImage: null,
+                    plotBorderWidth: 0,
+                    plotShadow: false
+                },
+
+                title: {
+                    text: res.data[2].Dado
+                },
+
+                pane: {
+                    startAngle: -150,
+                    endAngle: 150,
+                    background: [{
+                        backgroundColor: {
+                            linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                            stops: [
+                                [0, '#FFF'],
+                                [1, '#333']
+                            ]
+                        },
+                        borderWidth: 0,
+                        outerRadius: '109%'
+                    }, {
+                        backgroundColor: {
+                            linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                            stops: [
+                                [0, '#333'],
+                                [1, '#FFF']
+                            ]
+                        },
+                        borderWidth: 1,
+                        outerRadius: '107%'
+                    }, {
+                        // default background
+                    }, {
+                        backgroundColor: '#DDD',
+                        borderWidth: 0,
+                        outerRadius: '105%',
+                        innerRadius: '103%'
+                    }]
+                },
+
+                // the value axis
+                yAxis: {
+                    min: 0,
+                    max: 100,
+
+                    minorTickInterval: 'auto',
+                    minorTickWidth: 1,
+                    minorTickLength: 10,
+                    minorTickPosition: 'inside',
+                    minorTickColor: '#666',
+
+                    tickPixelInterval: 30,
+                    tickWidth: 2,
+                    tickPosition: 'inside',
+                    tickLength: 10,
+                    tickColor: '#666',
+                    labels: {
+                        step: 2,
+                        rotation: 'auto'
+                    },
+                    title: {
+                        text: '%'
+                    },
+                    plotBands: [{
+                        from: 0,
+                        to: 20,
+                        color: '#55BF3B' // green
+                    }, {
+                        from: 20,
+                        to: 60,
+                        color: '#DDDF0D' // yellow
+                    }, {
+                        from: 60,
+                        to: 100,
+                        color: '#DF5353' // red
+                    }]
+                },
+
+                series: [{
+                    name: 'Porcentagem',
+                    data: [z],
+                    tooltip: {
+                        valueSuffix: ' %'
+                    }
+                }]
+
+            },
+        // Add some life
+        function (chart) {
+            if (!chart.renderer.forExport) {
+                setInterval(function () {
+                    apiService.get("Dash/AtualizaVelocimetros", null, suc, er);
+                    function suc(data) {
+                        var point = chart.series[0].points[0],
+                        newVal,
+                        inc = parseFloat(data.data[2].Valor);
+
+                        newVal = parseFloat(data.data[2].Valor);
+                        point.update(newVal);
+                    }
+                    function er(data) {
+                    }
+
+
+                }, 4000);
+            }
+        });
 
         }
 
@@ -295,25 +551,234 @@
             $scope.Dashboard();
         }, 5000);
 
-        setInterval(function () {
+        setTimeout(function () {
+            
+            var xx = parseFloat($scope.AtualizaConversaoCPC[0].Qnt);
+            var yy = parseFloat($scope.AtualizaConversaoCPC[1].Qnt);
+            var zz = parseFloat($scope.AtualizaConversaoCPC[2].Qnt);
 
-            apiService.get("Dash/AtualizaVelocimetros", null, suc, er);
+            $('#piechart').highcharts({
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
+                },
+                title: {
+                    text: 'CPC x Atendidas'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                            style: {
+                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                            }
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Status',
+                    colorByPoint: true,
+                    data: [{
+                        name: 'Alega Pagamento',
+                        y: xx
+                    }, {
+                        name: 'Não Promessa',
+                        y: yy,
+                        sliced: true,
+                        selected: true
+                    }, {
+                        name: 'Promessa',
+                        y: zz
+                    }, ]
+                }]
+            });
+        }, 6000);
 
-            function suc(res) {
-                chart = $('#container-rpm').highcharts();
-                if (chart) {
-                    debugger;
-                    point = chart.series[0].points[0];
+        $scope.mudaCor = function (status, valor) {
+            
+            if (status == "Ligações") {
+                if (valor >= 8000) {
 
+                    return '#84F075';
+                }
+                else if (valor >= 6000 && valor <= 7999) {
+                    return '#EAF075';
+                }
+                else if (valor == 0) {
+                    return '#FFFFFF';
+                }
+                else {
+                    return '#F07575';
+                }
 
-                    point.update(parseInt(res.data[0].Valor));
+            }
+            else if (status == "Atendidas") {
+                if (valor >= 700) {
+
+                    return '#84F075';
+                }
+                else if (valor >= 500 && valor <= 699) {
+                    return '#EAF075';
+                }
+                else if (valor == 0) {
+                    return '#FFFFFF';
+                }
+                else {
+                    return '#F07575';
                 }
             }
+            else if (status == "CPC") {
+                if (valor >= 350) {
 
-            function er(res) {
+                    return '#84F075';
+                }
+                else if (valor >= 250 && valor <= 349) {
+                    return '#EAF075';
+                }
+                else if (valor == 0) {
+                    return '#FFFFFF';
+                }
+                else {
+                    return '#F07575';
+                }
             }
+            else if (status == "Promessa") {
+                if (valor >= 40) {
 
-        }, 2000);
+                    return '#84F075';
+                }
+                else if (valor >= 25 && valor <= 39) {
+                    return '#EAF075';
+                }
+                else if (valor == 0) {
+                    return '#FFFFFF';
+                }
+                else {
+                    return '#F07575';
+                }
+            }
+            else if (status == "Alega Pagamento") {
+                if (valor >= 50) {
 
+                    return '#84F075';
+                }
+                else if (valor >= 30 && valor <= 49) {
+                    return '#EAF075';
+                }
+                else if (valor == 0) {
+                    return '#FFFFFF';
+                }
+                else {
+                    return '#F07575';
+                }
+            }
+        }
+
+
+        $scope.mudaCorCarinha = function (status)
+        {
+            debugger;
+            if (status == "Livre") {
+                return '#EAF075';
+            }
+            else if (status == "Ocupado")
+            {
+                return '#F07575';
+            }
+            else if (status == "Desalocado") {
+                return 'silver';
+            }
+            else {
+                return '#F07575'
+            }
+        }
+
+        $scope.mudaCorPer = function (status, valor) {
+            
+            if (status == "Projeção Ligações") {
+                if (valor >= 100) {
+
+                    return '#84F075';
+                }
+                else if (valor >= 80 && valor <= 99) {
+                    return '#EAF075';
+                }
+                else if (valor == 0) {
+                    return '#FFFFFF';
+                }
+                else {
+                    return '#F07575';
+                }
+
+            }
+            else if (status == "Atendidas") {
+                if (valor >= 10) {
+
+                    return '#84F075';
+                }
+                else if (valor >= 5 && valor <= 10) {
+                    return '#EAF075';
+                }
+                else if (valor == 0) {
+                    return '#FFFFFF';
+                }
+                else {
+                    return '#F07575';
+                }
+            }
+            else if (status == "CPC") {
+                if (valor >= 40) {
+
+                    return '#84F075';
+                }
+                else if (valor >= 35 && valor <= 40) {
+                    return '#EAF075';
+                }
+                else if (valor == 0) {
+                    return '#FFFFFF';
+                }
+                else {
+                    return '#F07575';
+                }
+            }
+            else if (status == "Promessa") {
+                if (valor >= 10) {
+
+                    return '#84F075';
+                }
+                else if (valor >= 7 && valor <= 9) {
+                    return '#EAF075';
+                }
+                else if (valor == 0) {
+                    return '#FFFFFF';
+                }
+                else {
+                    return '#F07575';
+                }
+            }
+            else if (status == "Alega Pagamento") {
+                if (valor >= 40) {
+
+                    return '#84F075';
+                }
+                else if (valor >= 20 && valor <= 39) {
+                    return '#EAF075';
+                }
+                else if (valor == 0) {
+                    return '#FFFFFF';
+                }
+                else {
+                    return '#F07575';
+                }
+            }
+        }
     }
 })(angular.module('TRESTTO'));

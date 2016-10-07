@@ -48,6 +48,7 @@
     <Compile Include="AtualizaPainelHoraHoraTotal.cs" />
     <Compile Include="AtualizaPainelTelefonia.cs" />
     <Compile Include="AtualizaProdutividadeAgentes.cs" />
+    <Compile Include="AtualizaVelocimentros.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

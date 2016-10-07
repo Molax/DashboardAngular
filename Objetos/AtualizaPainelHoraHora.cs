@@ -9,19 +9,21 @@ namespace Objetos
     public class AtualizaPainelHoraHora
     {
         public string Status { get; set; }
-        public string status8 { get; set; }
-        public string status9 { get; set; }
-        public string status10 { get; set; }
-        public string status11 { get; set; }
-        public string status12 { get; set; }
-        public string status13 { get; set; }
-        public string status14 { get; set; }
-        public string status15 { get; set; }
-        public string status16 { get; set; }
-        public string status17 { get; set; }
-        public string status18 { get; set; }
-        public string status19 { get; set; }
-        public string status20 { get; set; }
-        public string status21 { get; set; }
+        public double status8 { get; set; }
+        public double status9 { get; set; }
+        public double status10 { get; set; }
+        public double status11 { get; set; }
+        public double status12 { get; set; }
+        public double status13 { get; set; }
+        public double status14 { get; set; }
+        public double status15 { get; set; }
+        public double status16 { get; set; }
+        public double status17 { get; set; }
+        public double status18 { get; set; }
+        public double status19 { get; set; }
+        public double status20 { get; set; }
+        public double status21 { get; set; }
+
+        public string Total { get; set; }
     }
 }

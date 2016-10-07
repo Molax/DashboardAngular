@@ -54,6 +54,8 @@ namespace Trestto.Dashboard.App
                  "~/Scripts/Angular/highchart.js",
                  "~/Scripts/Angular/hichchartmore.js",
                  "~/Scripts/Angular/exporting.js",
+                   "~/Scripts/Angular/drilldown.js",
+                     "~/Scripts/Angular/highdata.js",
                  "~/Scripts/Angular/angular-notify.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

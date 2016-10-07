@@ -50,7 +50,7 @@
     </section>
 </div>
 
-<div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
+<div class="col-lg-8 col-md-8 col-xs-12 col-sm-12">
     <section class="box ">
         <header class="panel_header">
             <h2 class="title pull-left">Gráficos em Pizza</h2>
@@ -59,19 +59,343 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 wid-project-report">
                     <div class="row">
-                        <div class="col-lg-4 col-xs-12 col-sm-12 col-md-4">
-                            <div id="container-rpm" style="width: 300px; height: 200px; float: left"></div>
+                        <div class="col-lg-4 col-xs-12 col-sm-12 col-md-6">
 
-                           </div>
-                        <div class="col-lg-4 col-xs-12 col-sm-12 col-md-4">
-                            <div id="container-rpm" style="width: 300px; height: 200px; float: left"></div>
+                            <div id="container" style="min-width: 280px; max-width: 280px; height: 280px; margin: 0 auto"></div>
+
 
                         </div>
                         <div class="col-lg-4 col-xs-12 col-sm-12 col-md-4">
-                            <div id="container-rpm" style="width: 300px; height: 200px; float: left"></div>
+                            <div id="container2" style="min-width: 280px; max-width: 280px; height: 280px; margin: 0 auto"></div>
+                        </div>
+                        <div class="col-lg-4 col-xs-12 col-sm-12 col-md-4">
+                            <div id="container3" style="min-width: 280px; max-width: 280px; height: 280px; margin: 0 auto"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 
-                        </div>
-                        </div>
+
+<div class="col-lg-4 ng-scope">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Painel Telefonia</h2>
+        </header>
+        <!--<h1 ng-style="{color: corDefinida <= '30' ? 'red' : (corDefinida > 30 && corDefinida < 60) ? 'blue' : 'yellow'}">kaksaksak</h1>-->
+        <div class="content-body padding-bottom-0">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <table st-table="rowCollectionBasic" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Status</th>
+                                <th>Qtd.</th>
+                                <th>%</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- ngRepeat: row in rowCollectionBasic -->
+                            <tr ng-repeat="row in AtualizaPainelTelefonia" st-select-row="row" class="ng-scope ng-isolate-scope">
+                                <td class="ng-binding">{{row.Dado}}</td>
+                                <td class="ng-binding">{{row.Valor}}</td>
+                                <td class="ng-binding">{{row.Representatividade}} %</td>
+                            </tr><!-- end ngRepeat: row in rowCollectionBasic -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="col-lg-12 ng-scope">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Painel Telefonia Geral</h2>
+        </header>
+        <!--<h1 ng-style="{color: corDefinida <= '30' ? 'red' : (corDefinida > 30 && corDefinida < 60) ? 'blue' : 'yellow'}">kaksaksak</h1>-->
+        <div class="content-body padding-bottom-0">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <table st-table="rowCollectionBasic" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Status</th>
+                                <th>8h</th>
+                                <th>9h</th>
+                                <th>10h</th>
+                                <th>11h</th>
+                                <th>12h</th>
+                                <th>13h</th>
+                                <th>14h</th>
+                                <th>15h</th>
+                                <th>16h</th>
+                                <th>17h</th>
+                                <th>18h</th>
+                                <th>19h</th>
+                                <th>20h</th>
+                                <th>21h</th>
+                                <th>Total</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- ngRepeat: row in rowCollectionBasic -->
+                            <tr ng-repeat="row in AtualizaPainelHoraHora" st-select-row="row" class="ng-scope ng-isolate-scope">
+                                <td class="ng-binding">{{row.Status}}</td>
+                                <td ng-style="{background : mudaCor(row.Status,row.status8})}" class="ng-binding">{{row.status8}}</td>
+                                <td ng-style="{background : mudaCor(row.Status,row.status9})}" class="ng-binding">{{row.status9}}</td>
+                                <td ng-style="{background : mudaCor(row.Status,row.status10)}" class="ng-binding">{{row.status10}}</td>
+                                <td ng-style="{background : mudaCor(row.Status,row.status11)}" class="ng-binding">{{row.status11}}</td>
+                                <td ng-style="{background : mudaCor(row.Status,row.status12)}" class="ng-binding">{{row.status12}}</td>
+                                <td ng-style="{background : mudaCor(row.Status,row.status13)}" class="ng-binding">{{row.status13}}</td>
+                                <td ng-style="{background : mudaCor(row.Status,row.status14)}" class="ng-binding">{{row.status14}}</td>
+                                <td ng-style="{background : mudaCor(row.Status,row.status15)}" class="ng-binding">{{row.status15}}</td>
+                                <td ng-style="{background : mudaCor(row.Status,row.status16)}" class="ng-binding">{{row.status16}}</td>
+                                <td ng-style="{background : mudaCor(row.Status,row.status17)}" class="ng-binding">{{row.status17}}</td>
+                                <td ng-style="{background : mudaCor(row.Status,row.status18)}" class="ng-binding">{{row.status18}}</td>
+                                <td ng-style="{background : mudaCor(row.Status,row.status19)}" class="ng-binding">{{row.status19}}</td>
+                                <td ng-style="{background : mudaCor(row.Status,row.status20)}" class="ng-binding">{{row.status20}}</td>
+                                <td ng-style="{background : mudaCor(row.Status,row.status21)}" class="ng-binding">{{row.status21}}</td>
+                                <td class="ng-binding">{{row.Total}}</td>
+                            </tr><!-- end ngRepeat: row in rowCollectionBasic -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<div class="col-lg-12 ng-scope">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Painel Telefonia %</h2>
+        </header>
+        <!--<h1 ng-style="{color: corDefinida <= '30' ? 'red' : (corDefinida > 30 && corDefinida < 60) ? 'blue' : 'yellow'}">kaksaksak</h1>-->
+        <div class="content-body padding-bottom-0">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <table st-table="rowCollectionBasic" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Status %</th>
+                                <th>8h</th>
+                                <th>9h</th>
+                                <th>10h</th>
+                                <th>11h</th>
+                                <th>12h</th>
+                                <th>13h</th>
+                                <th>14h</th>
+                                <th>15h</th>
+                                <th>16h</th>
+                                <th>17h</th>
+                                <th>18h</th>
+                                <th>19h</th>
+                                <th>20h</th>
+                                <th>21h</th>
+                                <th>Total</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- ngRepeat: row in rowCollectionBasic -->
+                            <tr ng-repeat="row in AtualizaPainelHoraHoraPercentual" st-select-row="row" class="ng-scope ng-isolate-scope">
+                                <td  class="ng-binding">{{row.Status}} %</td>
+                                <td ng-style="{background : mudaCorPer(row.Status,row.status8})}" class="ng-binding">{{row.status8}} %</td>
+                                <td ng-style="{background : mudaCorPer(row.Status,row.status9})}" class="ng-binding">{{row.status9}} %</td>
+                                <td ng-style="{background : mudaCorPer(row.Status,row.status10)}" class="ng-binding">{{row.status10}} %</td>
+                                <td ng-style="{background : mudaCorPer(row.Status,row.status11)}" class="ng-binding">{{row.status11}} %</td>
+                                <td ng-style="{background : mudaCorPer(row.Status,row.status12)}" class="ng-binding">{{row.status12}} %</td>
+                                <td ng-style="{background : mudaCorPer(row.Status,row.status13)}" class="ng-binding">{{row.status13}} %</td>
+                                <td ng-style="{background : mudaCorPer(row.Status,row.status14)}" class="ng-binding">{{row.status14}} %</td>
+                                <td ng-style="{background : mudaCorPer(row.Status,row.status15)}" class="ng-binding">{{row.status15}} %</td>
+                                <td ng-style="{background : mudaCorPer(row.Status,row.status16)}" class="ng-binding">{{row.status16}} %</td>
+                                <td ng-style="{background : mudaCorPer(row.Status,row.status17)}" class="ng-binding">{{row.status17}} %</td>
+                                <td ng-style="{background : mudaCorPer(row.Status,row.status18)}" class="ng-binding">{{row.status18}} %</td>
+                                <td ng-style="{background : mudaCorPer(row.Status,row.status19)}" class="ng-binding">{{row.status19}} %</td>
+                                <td ng-style="{background : mudaCorPer(row.Status,row.status20)}" class="ng-binding">{{row.status20}} %</td>
+                                <td ng-style="{background : mudaCorPer(row.Status,row.status21)}" class="ng-binding">{{row.status21}} %</td>
+                                <td  class="ng-binding">{{row.Total}} %</td>
+                            </tr><!-- end ngRepeat: row in rowCollectionBasic -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<div class="col-lg-12 ng-scope">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Produtividade dos Agentes</h2>
+        </header>
+        <!--<h1 ng-style="{color: corDefinida <= '30' ? 'red' : (corDefinida > 30 && corDefinida < 60) ? 'blue' : 'yellow'}">kaksaksak</h1>-->
+        <div class="content-body padding-bottom-0">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <table st-table="rowCollectionBasic" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Carinha</th>
+                                <th>Nome</th>
+                                <th>Atendidas</th>
+                                <th>CPC</th>
+                                <th>Promessa</th>
+                                <th>Alega Pgto.</th>
+                                <th>TMA</th>
+                                <th>TME</th>
+                                <th>Tempo Logado</th>
+                                <th>Tempo Disponível</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- ngRepeat: row in rowCollectionBasic -->
+                            <tr ng-repeat="row in AtualizaProdutividadeAgentes" st-select-row="row" class="ng-scope ng-isolate-scope">
+                                <td ng-style="{background : mudaCorCarinha(row.Status)}" class="ng-binding"><img src="../img/atendente_Logo.png" style="height:18px;width:18px; text-align:center;"></td>
+                                <td class="ng-binding">{{row.Nome}}</td>
+                                <td class="ng-binding">{{row.Atendidas}}</td>
+                                <td class="ng-binding">{{row.CPC}}</td>
+                                <td class="ng-binding">{{row.Promessa}}</td>
+                                <td class="ng-binding">{{row.AlegaPagamento}}</td>
+                                <td class="ng-binding">{{row.TMA}}</td>
+                                <td class="ng-binding">{{row.TME}}</td>
+                                <td class="ng-binding">{{row.TempoLogado}}</td>
+                                <td class="ng-binding">{{row.TempoDisponivel}}</td>
+                            </tr><!-- end ngRepeat: row in rowCollectionBasic -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<div class="col-lg-4 ng-scope">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Canais</h2>
+        </header>
+        <!--<h1 ng-style="{color: corDefinida <= '30' ? 'red' : (corDefinida > 30 && corDefinida < 60) ? 'blue' : 'yellow'}">kaksaksak</h1>-->
+        <div class="content-body padding-bottom-0">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <table st-table="rowCollectionBasic" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Canais ocupados</th>
+                                <th>Total</th>
+                                <th>Porcentagem</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- ngRepeat: row in rowCollectionBasic -->
+                            <tr ng-repeat="row in AtualizaMonitoramentoCanais" st-select-row="row" class="ng-scope ng-isolate-scope">
+                                <td class="ng-binding">{{row.CanaisOcupados}}</td>
+                                <td class="ng-binding">{{row.CanaisTotal}}</td>
+                                <td ng-style="{background: row.CanaisOcupadosPercentual <= 30 ? '#F07575' : (row.CanaisOcupadosPercentual > 30 && row.CanaisOcupadosPercentual < 60) ? '#EAF075' : '#84F075'}" class="ng-binding">{{row.CanaisOcupadosPercentual}} %</td>
+                            </tr><!-- end ngRepeat: row in rowCollectionBasic -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="col-lg-4 ng-scope">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Agentes Digitais</h2>
+        </header>
+        <!--<h1 ng-style="{color: corDefinida <= '30' ? 'red' : (corDefinida > 30 && corDefinida < 60) ? 'blue' : 'yellow'}">kaksaksak</h1>-->
+        <div class="content-body padding-bottom-0">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <table st-table="rowCollectionBasic" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Canais ocupados</th>
+                                <th>Total</th>
+                                <th>Porcentagem</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- ngRepeat: row in rowCollectionBasic -->
+                            <tr ng-repeat="row in AtualizaMonitoramentoCanais" st-select-row="row" class="ng-scope ng-isolate-scope">
+                                <td class="ng-binding">{{row.AgentesOcupados}}</td>
+                                <td class="ng-binding">{{row.AgentesTotal}}</td>
+                                <td ng-style="{background: row.AgentesOcupadosPercentual <= '30' ? '#F07575' : (row.AgentesOcupadosPercentual > 30 && row.AgentesOcupadosPercentual < 60) ? '#EAF075' : '#84F075'}" class="ng-binding">{{row.AgentesOcupadosPercentual}} %</td>
+                            </tr><!-- end ngRepeat: row in rowCollectionBasic -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Gráficos Telefonia</h2>
+        </header>
+        <div class="content-body padding-bottom-15">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-10 col-xs-10  ng-scope">
+                    <h4 class="margin-bottom-10">{{AtualizaGraficoTelefonia[0].Dado}} - {{AtualizaGraficoTelefonia[0].Valor}} %</h4>
+                    <div class="progress ng-isolate-scope" animate="false" value="dynamic" type="success">
+
+                        <div class="progress-bar progress-bar-success" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="{{AtualizaGraficoTelefonia[0].Valor}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width: (percent < 100 ? percent : 100) + '%'}" aria-valuetext="{{AtualizaGraficoTelefonia[0].Valor}}%" aria-labelledby="progressbar" style="min-width: 0px; transition: none; width: {{AtualizaGraficoTelefonia[0].Valor}}%;" ng-transclude=""><b class="ng-binding ng-scope"></b></div>
+                    </div>
+                    <h4 class="margin-bottom-10">{{AtualizaGraficoTelefonia[1].Dado}} - {{AtualizaGraficoTelefonia[1].Valor}} %</h4>
+                    <div class="progress ng-isolate-scope" animate="false" value="dynamic" type="success">
+                        <div class="progress-bar progress-bar-success" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="{{AtualizaGraficoTelefonia[1].Valor}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width: (percent < 100 ? percent : 100) + '%'}" aria-valuetext="{{AtualizaGraficoTelefonia[1].Valor}}%" aria-labelledby="progressbar" style="min-width: 0px; transition: none; width: {{AtualizaGraficoTelefonia[1].Valor}}%;" ng-transclude=""><b class="ng-binding ng-scope"></b></div>
+                    </div>
+                    <h4 class="margin-bottom-10">{{AtualizaGraficoTelefonia[2].Dado}} - {{AtualizaGraficoTelefonia[2].Valor}} %</h4>
+                    <div class="progress ng-isolate-scope" animate="false" value="dynamic" type="success">
+                        <div class="progress-bar progress-bar-success" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="{{AtualizaGraficoTelefonia[1].Valor}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width: (percent < 100 ? percent : 100) + '%'}" aria-valuetext="{{AtualizaGraficoTelefonia[1].Valor}}%" aria-labelledby="progressbar" style="min-width: 0px; transition: none; width: {{AtualizaGraficoTelefonia[1].Valor}}%;" ng-transclude=""><b class="ng-binding ng-scope"></b></div>
+                    </div>
+                    <h4 class="margin-bottom-10">{{AtualizaGraficoTelefonia[3].Dado}} - {{AtualizaGraficoTelefonia[3].Valor}} %</h4>
+                    <div class="progress ng-isolate-scope" animate="false" value="dynamic" type="success">
+                        <div class="progress-bar progress-bar-success" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="{{AtualizaGraficoTelefonia[3].Valor}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width: (percent < 100 ? percent : 100) + '%'}" aria-valuetext="{{AtualizaGraficoTelefonia[3].Valor}}%" aria-labelledby="progressbar" style="min-width: 0px; transition: none; width: {{AtualizaGraficoTelefonia[3].Valor}}%;" ng-transclude=""><b class="ng-binding ng-scope"></b></div>
+                    </div>
+                    <h4 class="margin-bottom-10">{{AtualizaGraficoTelefonia[4].Dado}} - {{AtualizaGraficoTelefonia[4].Valor}} %</h4>
+                    <div class="progress ng-isolate-scope" animate="false" value="dynamic" type="success">
+                        <div class="progress-bar progress-bar-success" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="{{AtualizaGraficoTelefonia[4].Valor}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width: (percent < 100 ? percent : 100) + '%'}" aria-valuetext="{{AtualizaGraficoTelefonia[4].Valor}}%" aria-labelledby="progressbar" style="min-width: 0px; transition: none; width: {{AtualizaGraficoTelefonia[4].Valor}}%;" ng-transclude=""><b class="ng-binding ng-scope"></b></div>
+                    </div>
+                    <h4 class="margin-bottom-10">{{AtualizaGraficoTelefonia[5].Dado}} - {{AtualizaGraficoTelefonia[5].Valor}} %</h4>
+                    <div class="progress ng-isolate-scope" animate="false" value="dynamic" type="success">
+                        <div class="progress-bar progress-bar-success" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="{{AtualizaGraficoTelefonia[5].Valor}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width: (percent < 100 ? percent : 100) + '%'}" aria-valuetext="{{AtualizaGraficoTelefonia[5].Valor}}%" aria-labelledby="progressbar" style="min-width: 0px; transition: none; width: {{AtualizaGraficoTelefonia[5].Valor}}%;" ng-transclude=""><b class="ng-binding ng-scope"></b></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Gráficos Telefonia</h2>
+        </header>
+        <div class="content-body padding-bottom-15">
+            <div class="row">
+                <div class="col-lg-12 col-md-8 col-sm-10 col-xs-10  ng-scope">
+                    <div id="piechart" style="min-width: 280px; max-width: 500px; height: 400px; margin: 0 auto"></div>
+
                 </div>
             </div>
         </div>

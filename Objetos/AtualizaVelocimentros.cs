@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Objetos
 {
-    public class AtualizaGraficoTelefonia
+    public class AtualizaVelocimentros
     {
         public string Dado { get; set; }
 
-        public double Valor { get; set; }
+        public string Valor { get; set; }
     }
 }
