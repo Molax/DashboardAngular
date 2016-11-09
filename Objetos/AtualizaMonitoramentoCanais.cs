@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +9,21 @@ namespace Objetos
 {
     public class AtualizaMonitoramentoCanais
     {
+        [JsonProperty(PropertyName = "Total_Canais")]
         public string CanaisTotal { get; set; }
 
+        [JsonProperty(PropertyName = "Qtde_Canais_Ocupados")]
         public string CanaisOcupados { get; set; }
-        public double CanaisOcupadosPercentual { get; set; }
+
+        public string CanaisOcupadosPercentual { get; set; }
+
+        [JsonProperty(PropertyName = "Total_Agentes")]
         public string AgentesTotal { get; set; }
+
+        [JsonProperty(PropertyName = "Qtde_Agentes_Ocupados")]
         public string AgentesOcupados { get; set; }
-        public double AgentesOcupadosPercentual { get; set; }
+
+        public string AgentesOcupadosPercentual { get; set; }
 
     }
 }

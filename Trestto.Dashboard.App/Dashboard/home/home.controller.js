@@ -70,7 +70,7 @@
             apiService.get("Dash/AtualizaPainelTelefonia", null, successAtualizaPainelTelefoniaal, errorAAtualizaPainelTelefonia);
 
             function successAtualizaPainelTelefoniaal(res) {
-
+                
                 $scope.AtualizaPainelTelefonia = res.data;
                 console.log(res.data)
             }
@@ -600,7 +600,7 @@
                     }, ]
                 }]
             });
-        }, 6000);
+        }, 200000);
 
         $scope.mudaCor = function (status, valor) {
             
@@ -683,22 +683,23 @@
         }
 
 
-        $scope.mudaCorCarinha = function (status)
+        $scope.mudaCorCarinha = function (status,nome)
         {
-            debugger;
-            if (status == "Livre") {
-                return '#EAF075';
+            if (nome != 'Consolidado') {
+                if (status == "Livre") {
+                    return '#EAF075';
+                }
+                else if (status == "Ocupado") {
+                    return '#F07575';
+                }
+                else if (status == "Desalocado") {
+                    return 'silver';
+                }
+                else {
+                    return '#F07575'
+                }
             }
-            else if (status == "Ocupado")
-            {
-                return '#F07575';
-            }
-            else if (status == "Desalocado") {
-                return 'silver';
-            }
-            else {
-                return '#F07575'
-            }
+     
         }
 
         $scope.mudaCorPer = function (status, valor) {

@@ -29,6 +29,7 @@ namespace Trestto.Dashboard.App
                                "~/dashboard/modules/common.module.js",
                            "~/dashboard/app.js",
                            "~/dashboard/services/apiSevice.js",
+                           "~/dashboard/services/resize.js",
                       "~/dashboard/home/home.controller.js",
                                         "~/dashboard/home/rootCtrl.js"
            ));
@@ -55,6 +56,7 @@ namespace Trestto.Dashboard.App
                  "~/Scripts/Angular/hichchartmore.js",
                  "~/Scripts/Angular/exporting.js",
                    "~/Scripts/Angular/drilldown.js",
+                    "~/Scripts/Angular/grid.js",
                      "~/Scripts/Angular/highdata.js",
                  "~/Scripts/Angular/angular-notify.js"));
 
@@ -62,6 +64,7 @@ namespace Trestto.Dashboard.App
                      "~/Content/ui-bootstrap-csp.css",
                       "~/Content/bootstrap.css",
                       "~/Content/angular-chart.css",
+                       "~/Content/grid.css",
                       "~/Content/app.css"));
 
 

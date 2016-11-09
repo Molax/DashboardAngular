@@ -77,6 +77,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -152,9 +156,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -225,13 +226,16 @@
     <Content Include="Content\app.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\grid.css" />
     <Content Include="Content\loading-bar.css" />
+    <Content Include="Content\resize.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="Dashboard\app.js" />
     <Content Include="Dashboard\home\home.html" />
     <Content Include="Dashboard\home\rootCtrl.js" />
     <Content Include="Dashboard\modules\common.module.js" />
     <Content Include="Dashboard\services\apiSevice.js" />
+    <Content Include="Dashboard\services\resize.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -249,10 +253,12 @@
     <Content Include="Scripts\Angular\Chart.min.js" />
     <Content Include="Scripts\Angular\chartjs.js" />
     <Content Include="Scripts\Angular\dash.js" />
+    <Content Include="Scripts\Angular\angular-resizable.min.js" />
     <Content Include="Scripts\Angular\drilldown.js" />
     <Content Include="Scripts\Angular\easypieChart.js" />
     <Content Include="Scripts\Angular\exporting.js" />
     <Content Include="Scripts\Angular\gauge.js" />
+    <Content Include="Scripts\Angular\grid.js" />
     <Content Include="Scripts\Angular\gulpfile.js" />
     <Content Include="Scripts\Angular\hichchartmore.js" />
     <Content Include="Scripts\Angular\highchart.js" />
@@ -271,6 +277,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Dashboard\home\home.controller.js" />
+    <Content Include="bower_components\material-design-icons\iconfont\codepoints" />
+    <Content Include="bower_components\material-design-icons\iconfont\MaterialIcons-Regular.eot" />
+    <Content Include="bower_components\material-design-icons\iconfont\MaterialIcons-Regular.ttf" />
+    <Content Include="bower_components\material-design-icons\iconfont\MaterialIcons-Regular.woff" />
+    <Content Include="bower_components\material-design-icons\iconfont\MaterialIcons-Regular.woff2" />
+    <Content Include="bower_components\material-design-icons\iconfont\README.md" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

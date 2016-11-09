@@ -1,9 +1,14 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
+using System.Net;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace Trestto.Dashboard.App.Controllers
 {
@@ -12,6 +17,7 @@ namespace Trestto.Dashboard.App.Controllers
         [HttpGet]
         public JsonResult AtualizaPainelHoraHora()
         {
+
             List<Objetos.AtualizaPainelHoraHoraTotal> total = new List<Objetos.AtualizaPainelHoraHoraTotal>();
 
             total = AtualizaPainelHoraHoraTotal();
@@ -40,18 +46,18 @@ namespace Trestto.Dashboard.App.Controllers
                     Status = item["Status"].ToString(),
                     status9 = Convert.ToInt32(item["9"]),
                     status8 = Convert.ToInt32(item["8"]),
-                    status10 = Convert.ToInt32(item["10"] ),
-                    status11 = Convert.ToInt32(item["11"] ),
-                    status12 = Convert.ToInt32(item["12"] ),
-                    status13 = Convert.ToInt32(item["13"] ),
-                    status14 = Convert.ToInt32(item["14"] ),
-                    status15 = Convert.ToInt32(item["15"] ),
-                    status16 = Convert.ToInt32(item["16"] ),
-                    status17 = Convert.ToInt32(item["17"] ),
-                    status18 = Convert.ToInt32(item["18"] ),
-                    status19 = Convert.ToInt32(item["19"] ),
-                    status20 = Convert.ToInt32(item["20"] ),
-                    status21 = Convert.ToInt32(item["21"] ),
+                    status10 = Convert.ToInt32(item["10"]),
+                    status11 = Convert.ToInt32(item["11"]),
+                    status12 = Convert.ToInt32(item["12"]),
+                    status13 = Convert.ToInt32(item["13"]),
+                    status14 = Convert.ToInt32(item["14"]),
+                    status15 = Convert.ToInt32(item["15"]),
+                    status16 = Convert.ToInt32(item["16"]),
+                    status17 = Convert.ToInt32(item["17"]),
+                    status18 = Convert.ToInt32(item["18"]),
+                    status19 = Convert.ToInt32(item["19"]),
+                    status20 = Convert.ToInt32(item["20"]),
+                    status21 = Convert.ToInt32(item["21"]),
                     Total = total[i].Total
                 });
                 i++;
@@ -130,18 +136,18 @@ namespace Trestto.Dashboard.App.Controllers
                     Status = item["Status"].ToString(),
                     status8 = Convert.ToDouble(item["8"]),
                     status9 = Convert.ToDouble(item["9"]),
-                    status10 =Convert.ToDouble( item["10"]),
-                    status11 =Convert.ToDouble( item["11"]),
-                    status12 =Convert.ToDouble( item["12"]),
-                    status13 =Convert.ToDouble( item["13"]),
-                    status14 =Convert.ToDouble( item["14"]),
-                    status15 =Convert.ToDouble( item["15"]),
-                    status16 =Convert.ToDouble( item["16"]),
-                    status17 =Convert.ToDouble( item["17"]),
-                    status18 =Convert.ToDouble( item["18"]),
-                    status19 =Convert.ToDouble( item["19"]),
-                    status20 =Convert.ToDouble( item["20"]),
-                    status21 =Convert.ToDouble( item["21"]),
+                    status10 = Convert.ToDouble(item["10"]),
+                    status11 = Convert.ToDouble(item["11"]),
+                    status12 = Convert.ToDouble(item["12"]),
+                    status13 = Convert.ToDouble(item["13"]),
+                    status14 = Convert.ToDouble(item["14"]),
+                    status15 = Convert.ToDouble(item["15"]),
+                    status16 = Convert.ToDouble(item["16"]),
+                    status17 = Convert.ToDouble(item["17"]),
+                    status18 = Convert.ToDouble(item["18"]),
+                    status19 = Convert.ToDouble(item["19"]),
+                    status20 = Convert.ToDouble(item["20"]),
+                    status21 = Convert.ToDouble(item["21"]),
                     Total = total[i].Total
 
                 });
@@ -190,34 +196,35 @@ namespace Trestto.Dashboard.App.Controllers
         [HttpGet]
         public JsonResult AtualizaPainelTelefonia()
         {
-            List<Objetos.AtualizaPainelTelefonia> Dados = new List<Objetos.AtualizaPainelTelefonia>();
+            var text = "";
 
-            SqlConnection sqlConnection1 = new SqlConnection(ConfigurationManager.ConnectionStrings["DASHBOARD"].ConnectionString);
-            SqlCommand cmd = new SqlCommand();
+            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create("http://162.255.139.226/ucenter/api/report/ObterStatusTelefonia/trestto/beleza2016/179/2016-10-26/2016-10-27%2018:00:00");
+            httpWebRequest.Method = WebRequestMethods.Http.Get;
+            httpWebRequest.Accept = "application/json";
 
-            cmd.CommandText = "sp_RPT_OPTIMUS_Dashboard_362_StatusTelefonia_V2";
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Connection = sqlConnection1;
+            var response = (HttpWebResponse)httpWebRequest.GetResponse();
 
-            sqlConnection1.Open();
-
-            SqlDataReader dr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Load(dr);
-
-            foreach (DataRow item in dt.Rows)
+            using (var sr = new StreamReader(response.GetResponseStream()))
             {
-                Dados.Add(new Objetos.AtualizaPainelTelefonia
-                {
-                    Dado = item["Dado"].ToString(),
-                    Representatividade = item["Representatividade"].ToString(),
-                    Valor = item["Valor"].ToString()
-                });
+                text = sr.ReadToEnd();
             }
 
-            sqlConnection1.Close();
+            var des = (List<Objetos.AtualizaPainelTelefonia>)Newtonsoft.Json.JsonConvert.DeserializeObject(text, typeof(List<Objetos.AtualizaPainelTelefonia>));
 
-            return Json(Dados, JsonRequestBehavior.AllowGet);
+            Decimal valortotal = 0;
+
+            foreach (var item in des)
+            {
+                valortotal += Convert.ToInt32(item.Valor);
+            }
+
+            foreach (var item in des)
+            {
+                item.Representatividade = String.Format("{0:0.00}", ((Convert.ToInt32(item.Valor) / valortotal) * 100));
+            }
+
+
+            return Json(des, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -255,6 +262,8 @@ namespace Trestto.Dashboard.App.Controllers
         [HttpGet]
         public JsonResult AtualizaProdutividadeAgentes()
         {
+
+
             List<Objetos.AtualizaProdutividadeAgentes> Dados = new List<Objetos.AtualizaProdutividadeAgentes>();
 
             SqlConnection sqlConnection1 = new SqlConnection(ConfigurationManager.ConnectionStrings["DASHBOARD"].ConnectionString);
@@ -299,35 +308,82 @@ namespace Trestto.Dashboard.App.Controllers
         public JsonResult AtualizaMonitoramentoCanais()
         {
 
-            List<Objetos.AtualizaMonitoramentoCanais> Dados = new List<Objetos.AtualizaMonitoramentoCanais>();
+            var text = "";
 
-            SqlConnection sqlConnection1 = new SqlConnection(ConfigurationManager.ConnectionStrings["DASHBOARD"].ConnectionString);
-            SqlCommand cmd = new SqlCommand();
+            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create("http://162.255.139.226/ucenter/api/report/ObterOcupacao/trestto/beleza2016/179/2016-11-08%2005:49:29/2016-11-09%2008:05:12/");
+            httpWebRequest.Method = WebRequestMethods.Http.Get;
+            httpWebRequest.Accept = "application/json";
 
-            cmd.CommandText = "sp_RPT_OPTIMUS_Dashboard_362_MonitoramentoCanais_V1";
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Connection = sqlConnection1;
+            var response = (HttpWebResponse)httpWebRequest.GetResponse();
 
-            sqlConnection1.Open();
-
-            SqlDataReader dr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Load(dr);
-
-            foreach (DataRow item in dt.Rows)
+            using (var sr = new StreamReader(response.GetResponseStream()))
             {
-                Dados.Add(new Objetos.AtualizaMonitoramentoCanais
-                {
-                    AgentesOcupados = item["AgentesOcupados"].ToString(),
-                    AgentesOcupadosPercentual = Convert.ToDouble(item["AgentesOcupadosPercentual"]),
-                    AgentesTotal = item["AgentesTotal"].ToString(),
-                    CanaisOcupados = item["CanaisOcupados"].ToString(),
-                    CanaisOcupadosPercentual = Convert.ToDouble(item["CanaisOcupadosPercentual"]),
-                    CanaisTotal = item["CanaisTotal"].ToString()
-                });
+                text = sr.ReadToEnd();
             }
-            sqlConnection1.Close();
-            return Json(Dados, JsonRequestBehavior.AllowGet);
+
+            var des = (List<Objetos.AtualizaMonitoramentoCanais>)Newtonsoft.Json.JsonConvert.DeserializeObject(text, typeof(List<Objetos.AtualizaMonitoramentoCanais>));
+
+
+            decimal agentestotal = 0;
+
+            decimal.TryParse(des[0].AgentesTotal, out agentestotal);
+
+            decimal canaltotal = 0;
+
+            decimal.TryParse(des[0].CanaisTotal, out canaltotal);
+
+            if (agentestotal > 0)
+            {
+                des[0].AgentesOcupadosPercentual = String.Format("{0:0.00}", ((Convert.ToDecimal(des[0].AgentesOcupados) / Convert.ToDecimal(des[0].AgentesTotal)) * 100));
+            }
+            else
+            {
+                des[0].AgentesOcupadosPercentual = "0,00";
+
+            }
+
+            if (canaltotal > 0)
+            {
+                des[0].CanaisOcupadosPercentual = String.Format("{0:0.00}", ((Convert.ToDecimal(des[0].CanaisOcupados) / Convert.ToDecimal(des[0].CanaisTotal)) * 100));
+            }
+            else
+            {
+                des[0].CanaisOcupadosPercentual = "0,00";
+            }
+
+
+
+
+
+            //List<Objetos.AtualizaMonitoramentoCanais> Dados = new List<Objetos.AtualizaMonitoramentoCanais>();
+
+            //SqlConnection sqlConnection1 = new SqlConnection(ConfigurationManager.ConnectionStrings["DASHBOARD"].ConnectionString);
+            //SqlCommand cmd = new SqlCommand();
+
+            //cmd.CommandText = "sp_RPT_OPTIMUS_Dashboard_362_MonitoramentoCanais_V1";
+            //cmd.CommandType = CommandType.StoredProcedure;
+            //cmd.Connection = sqlConnection1;
+
+            //sqlConnection1.Open();
+
+            //SqlDataReader dr = cmd.ExecuteReader();
+            //DataTable dt = new DataTable();
+            //dt.Load(dr);
+
+            //foreach (DataRow item in dt.Rows)
+            //{
+            //    Dados.Add(new Objetos.AtualizaMonitoramentoCanais
+            //    {
+            //        AgentesOcupados = item["AgentesOcupados"].ToString(),
+            //        AgentesOcupadosPercentual = Convert.ToDouble(item["AgentesOcupadosPercentual"]),
+            //        AgentesTotal = item["AgentesTotal"].ToString(),
+            //        CanaisOcupados = item["CanaisOcupados"].ToString(),
+            //        CanaisOcupadosPercentual = Convert.ToDouble(item["CanaisOcupadosPercentual"]),
+            //        CanaisTotal = item["CanaisTotal"].ToString()
+            //    });
+            //}
+            //sqlConnection1.Close();
+            return Json(des, JsonRequestBehavior.AllowGet);
 
             // MAIOR IGUAL QUE 60 - VERDE
             //if (Convert.ToDecimal(CanaisOcupadosPercentual) >= 60)
@@ -404,6 +460,28 @@ namespace Trestto.Dashboard.App.Controllers
         [HttpGet]
         public JsonResult AtualizaControleMailing()
         {
+
+            var text = "";
+
+            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create("http://162.255.139.226/ucenter/api/report/ObterMailing/trestto/beleza2016/179/2016-10-26/2016-10-27%2018:00:00");
+            httpWebRequest.Method = WebRequestMethods.Http.Get;
+            httpWebRequest.Accept = "application/json";
+
+            var response = (HttpWebResponse)httpWebRequest.GetResponse();
+
+            using (var sr = new StreamReader(response.GetResponseStream()))
+            {
+                text = sr.ReadToEnd();
+            }
+
+
+
+            var x = Json(text);
+
+
+            List<Objetos.AtualizaControleMailing> des = (List<Objetos.AtualizaControleMailing>)Newtonsoft.Json.JsonConvert.DeserializeObject(text, typeof(List<Objetos.AtualizaControleMailing>));
+
+
             List<Objetos.AtualizaControleMailing> Dados = new List<Objetos.AtualizaControleMailing>();
 
 
@@ -450,6 +528,10 @@ namespace Trestto.Dashboard.App.Controllers
         [HttpGet]
         public JsonResult AtualizaControleMailingGrafico()
         {
+
+
+
+
             List<Objetos.AtualizaControleMailing> Dados = new List<Objetos.AtualizaControleMailing>();
 
             SqlConnection sqlConnection1 = new SqlConnection(ConfigurationManager.ConnectionStrings["DASHBOARD"].ConnectionString);

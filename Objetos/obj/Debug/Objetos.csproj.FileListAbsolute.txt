@@ -11,3 +11,15 @@ E:\GitLab\DashboardAngular\Objetos\bin\Debug\Objetos.pdb
 E:\GitLab\DashboardAngular\Objetos\obj\Debug\Objetos.csprojResolveAssemblyReference.cache
 E:\GitLab\DashboardAngular\Objetos\obj\Debug\Objetos.dll
 E:\GitLab\DashboardAngular\Objetos\obj\Debug\Objetos.pdb
+F:\Gitlab\DashboardAngular\Objetos\bin\Debug\Objetos.dll
+F:\Gitlab\DashboardAngular\Objetos\bin\Debug\Objetos.pdb
+F:\Gitlab\DashboardAngular\Objetos\obj\Debug\Objetos.csprojResolveAssemblyReference.cache
+F:\Gitlab\DashboardAngular\Objetos\obj\Debug\Objetos.dll
+F:\Gitlab\DashboardAngular\Objetos\obj\Debug\Objetos.pdb
+E:\GitLab\Trestto.Dashboard\Objetos\bin\Debug\Objetos.dll
+E:\GitLab\Trestto.Dashboard\Objetos\bin\Debug\Objetos.pdb
+E:\GitLab\Trestto.Dashboard\Objetos\bin\Debug\Newtonsoft.Json.dll
+E:\GitLab\Trestto.Dashboard\Objetos\bin\Debug\Newtonsoft.Json.xml
+E:\GitLab\Trestto.Dashboard\Objetos\obj\Debug\Objetos.dll
+E:\GitLab\Trestto.Dashboard\Objetos\obj\Debug\Objetos.pdb
+E:\GitLab\Trestto.Dashboard\Objetos\obj\Debug\Objetos.csprojResolveAssemblyReference.cache

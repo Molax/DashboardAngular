@@ -10,6 +10,7 @@ namespace Trestto.Dashboard.App.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Title = "VIVO M35";
             return View();
         }
 
